@@ -58,7 +58,7 @@ Installing the Sales Management solution template for Salesforce configures the 
 -	Power BI Desktop file (SalesManagement.pbix)
 The detailed description of each component of the architecture is below. To get started, navigate to the Power BI solution templates from the Solutions menu on powerbi.com: 
 
-![Solutions Menu](../common/Resources/Images/SolutionsMenu.png)
+![Solutions Menu](../Common/Resources/Images/SolutionsMenu.png)
 From there, select the Sales Management for Salesforce solution template and click the “Install now” button.
 
 There are three distinct flows for the installation:
@@ -149,7 +149,7 @@ _Follow this step for an Azure SQL database destination; otherwise, follow step 
 
 Provide your Azure SQL Database credentials to gain access to the destination Azure SQL Database.
 
-![ConnectAzureSQL](../common/Resources/Images/ConnectAzureSQL.png)
+![ConnectAzureSQL](../Common/Resources/Images/ConnectAzureSQL.png)
 
 Important note: You **_must_** safelist the IP addresses shown on this page in the Azure portal before you continue. Do not use the values from the screenshot above, but the values in the actual page. If you do not, the process will fail.
 The IP addresses must be safe-listed inside Azure SQL for the following reasons:
@@ -172,7 +172,7 @@ Provide your Azure SQL Database credentials to gain access to the destination SQ
 
 If SQL Server Analysis Services (SSAS) is used, enter an existing SSAS server name and the name of a new Analysis Services database. This SSAS database will be created on your behalf.
 
-![Connect to SQL And SSAS](../common/Resources/Images/ConnectSQLandSSAS.png)
+![Connect to SQL And SSAS](../Common/Resources/Images/ConnectSQLandSSAS.png)
 
 ## Step 5: Tailor your Sales Management solution template for Salesforce
 Provide the starting month of your fiscal calendar. This is required for fiscal year calculations in the Power BI file. 
@@ -206,22 +206,22 @@ Click the “Download PBIX” button to download a Power BI file, SalesManagementRep
 If the data was imported directly into Power BI, proceed; otherwise skip to step 8b.
 Open the downloaded Power BI file and take the following steps:
 a)	Click “Apply Changes”
-![Apply Changes](../common/Resources/Images/ApplyChanges.png)
+![Apply Changes](../Common/Resources/Images/ApplyChanges.png)
 b)	Windows Credentials
 On the windows tab, select “Use my current credentials”:
-![Use my current credentials](../common/Resources/Images/WindowsCredentials.png)
+![Use my current credentials](../Common/Resources/Images/WindowsCredentials.png)
 c)	Database Credentials
 Click the Database item in the left-hand pane and enter the username and password you provided for the Azure SQL database:
-![Database Credentials](../common/Resources/Images/DatabaseCredentials.png)
+![Database Credentials](../Common/Resources/Images/DatabaseCredentials.png)
 Click “Save”.
 
 ### Step 8b: Power BI Live Connection to Analysis Services
 _If the Power BI file is connected to SQL Server Analysis Service, proceed; otherwise follow the instructions in step 8a._
 
 Open the Power BI file. ON the Home menu tab, select Edit Queries, then Data Source Settings:
-![SSASDB](../common/Resources/Images/SSASServerDatabase.png)
+![SSASDB](../Common/Resources/Images/SSASServerDatabase.png)
 Enter the Server and Database name entered in the previous step and click OK. The Navigator dialog will appear:
-![SSASNav](../common/Resources/Images/SSASNavigator.png)
+![SSASNav](../Common/Resources/Images/SSASNavigator.png)
 Click OK to view the report.
 ## Step 9: View the Report
 At this point Power BI Desktop will connect and retrieve the data. Note that it may take some time for the initial data pull to finish.  
@@ -615,7 +615,7 @@ Security is defined so that all ascendants of an user (as defined by which users
 ## SQL Server Analysis Services
 A SQL Server Analysis Services tabular model is an optional component of the Sales management solution template. The tabular model in SQL Server Management Studio is produced below:
 
-![SSASModel](../common/Resources/Images/SSASModel.png)
+![SSASModel](../Common/Resources/Images/SSASModel.png)
 
 The Connection object contains a reference and credentials to the SQL database. This can be edited if the database is changed after the initial installation.
 The table objects are identical to the objects in the Power BI model and are described there.
@@ -646,12 +646,12 @@ The security DAX expressions can be changed in SQL Server Management Studio or i
 
 ## SQL Server Agent
 If the SQL Server Analysis Services option is chosen, a SQL Server agent job entitled “Data load and processing” is created to launch the data replication process and  process the tabular model:
-![SQLAgent](../common/Resources/Images/SQLAgent.png)
+![SQLAgent](../Common/Resources/Images/SQLAgent.png)
 
 
 The SQL Server Agent Job has four steps:
 
-![AQLAgentSteps](../common/Resources/Images/SQLAgentSteps.png)
+![AQLAgentSteps](../Common/Resources/Images/SQLAgentSteps.png)
 
 The “Start solution processing” step initiates the ETL. The “Check data load” step validates that the 
 load succeeded. “Update domain account information” determines each user’s domain name based on their email addresses (refer to table usermapping). The process SSAS database performs a full process on all tables in the SSAS tabular model.
@@ -662,7 +662,7 @@ The above steps launch PowerShell scripts found in the installation folder.
 ### Tables and Relationships
 The relationships between the tables are shown in the diagram below:
 
-![PBIRelations](../common/Resources/Images/PBITablesRelationships.png)
+![PBIRelations](../Common/Resources/Images/PBITablesRelationships.png)
 
 ### Power BI Measures
 The table below lists the measures in the Power BI file:
@@ -738,7 +738,7 @@ The purpose of the Daily report is for Sales Managers to view detailed informati
 
 The ‘Daily View’ page is split into two key sections: ‘Retrospective’ and ‘Looking Ahead’.
 
-![DailyView](../common/Resources/Images/PBI_SM_DailyView.png)
+![DailyView](../Common/Resources/Images/PBI_SM_DailyView.png)
 
 The ‘Retrospective’ View is concerned about reporting on things that have already happened this quarter. There are two key tables to focus on – the revenue a team has brought in this quarter and the opportunities that have been lost this quarter. On the left hand side one can see the ‘Variance to Prior Day’ metric. This provides a quick indicator of how sales have changed since yesterday. 
 
@@ -746,12 +746,12 @@ The ‘Retrospective’ View is concerned about reporting on things that have alread
 
 An important aim of the ‘Daily View’ however, is to give a Sales Manager the finest level of granularity they may wish to view their data by. Whilst the default report page looks at things on a quarter level, a Sales Manager may be interested in seeing the opportunities that were lost this week or the opportunities that are expecting to close tomorrow. By using the time slicers present on the page, a Sales Manager can view their data at a month, week or day level. The slicers at the top of the page update the ‘Retrospective view (i.e. the past), whereas the slicers in the second half of the page update everything ‘Looking Ahead’. 
 
-![DailyViewF](../common/Resources/Images/PBI_SM_DailyViewFiltered.png)
+![DailyViewF](../Common/Resources/Images/PBI_SM_DailyViewFiltered.png)
 
 ## Sales Performance
 The purpose of the Sales Manager page is to use historical data to evaluate the current performance of one or more sales teams.
 
-![SalesPerf](../common/Resources/Images/PBI_SM_SalesPerformance.png)
+![SalesPerf](../Common/Resources/Images/PBI_SM_SalesPerformance.png)
 
 
 The Sales Performance view helps Sales Managers answer questions about how their teams are performing compared to previous years. The right-hand side of the page looks at Year to Date sales (i.e. all sales that have occurred between today and the beginning of the year). It then contrasts these sales with sales for the same time period but in previous years. In the screenshot one can thus see sales for the first 7 weeks of the year compared to the first 7 weeks in 2015 and 214. One can then also view important high level metrics around revenue made this year as well as growth compared to last year. 
@@ -761,19 +761,19 @@ The middle graph shows the same information at a quarter view whereas the left-h
 Finally, the slicers at the top of the page include all of the Sales Managers direct reports (salespeople or sales team managers). A Sales Manager is thus able to select a specific sales team and look at their sales performance compared to not only their previous year performances but also the global average for the Sales Manager’s teams. 
 
 
-![SalesPerfF](../common/Resources/Images/PBI_SM_SalesPerformanceFiltered.png)
+![SalesPerfF](../Common/Resources/Images/PBI_SM_SalesPerformanceFiltered.png)
 
 ## Pipeline View
 The purpose of the Pipeline view is to monitor the health of the sales pipeline
 
-![Pipeline](../common/Resources/Images/PBI_SM_Pipeline.png)
+![Pipeline](../Common/Resources/Images/PBI_SM_Pipeline.png)
 
 This view focuses on the health of the sales pipeline. The main way pipeline health is evaluated is by measuring pipeline coverage (i.e. by summing up actual sales with all my open opportunities, does that compare to quota). Some sales mangers like to use percentages higher than 100% (e.g. 120%) to indicate a healthy pipeline as they assume not all opportunities will be closed. In our report, any pipeline coverage above 100% appears as green. On the report pipeline coverage is also split by sales team/salesperson and product to provide a more detailed understanding of pipeline.
 
 In the sample report, one can see that while there is a very impressive pipeline coverage for Server Platform (nearly 500%), some of the other products have much lower pipeline coverage. As a Sales Manager, one could investigate why certain products are not generating as much interest and reprioritize the focus of the sales teams away from Server Platform to other areas. We have also enabled drilling down capabilities in the  owner and product pipeline coverage bar graphs. This means that clicking on a particular sales team will uncover all of the sales people that belong to the team, whereas clicking on a product family will uncover all the products associated with it. For example, ‘drilling’ into Server Platform will allow one to see whether there is one product that has resulted in the huge surge of pipeline coverage for Server Platform, or whether all Server Platform products extremely popular. As one can see below, it appears to be the latter with all apart from one Server Platform product having very good pipeline coverage:
 
 
-![PipelineCoverage](../common/Resources/Images/PBI_SM_PipelineCoverage.png)
+![PipelineCoverage](../Common/Resources/Images/PBI_SM_PipelineCoverage.png)
 
 Another metric that complements pipeline coverage is ‘Gap to Green’. Gap to green looks at how much more revenue needed in the pipeline is required to reach quota. A negative gap to green (as shown above in green) indicates one has already surpassed the amount required. The other card metrics on the report look at the amount of opportunities that have a high, medium and low likelihood of closing.
 
@@ -781,7 +781,7 @@ The cumulative graph in the bottom right hand corner provides some insights on t
 
 Finally, a slicer above the cumulative graph depicts the probability with which an opportunity will close. 10% indicates an low probability of closing whereas 100% indicates the opposite. A Sales Manager can thus start with 100% and continue incrementing downwards until they find out which opportunities need to close in order to reach their target. In the example below, opportunities that have 100% close probability for Azure are viewed: 
 
-![PipelineCoverageF](../common/Resources/Images/PBI_SM_PipelineCoverage100Filter.png)
+![PipelineCoverageF](../Common/Resources/Images/PBI_SM_PipelineCoverage100Filter.png)
 
 
 
