@@ -1,0 +1,39 @@
+﻿<template>
+    <h1 class="st-title">Connect to Azure</h1>
+    <p class="st-subtitle">
+        To create the solution we will be using a number of Azure Services which require an Azure subscription.
+        Don't worry if you don't have one, you can get started with a free
+        <a href="https://azure.microsoft.com/en-us/free/" target="_blank">Azure subscription trial</a>.
+    </p>
+
+    <div if.bind="isActivated && !isValidated">
+        <p class="st-text">Would you like to connect to Azure through an organizational account or a Microsoft account?</p>
+        <div class="st-float-clear">
+            <select class="btn btn-default dropdown-toggle st-input" value.bind="connectionType">
+                <option value.bind="azureConnection.Organizational">Organizational Account (Work or School)</option>
+                <option value.bind="azureConnection.Microsoft">Microsoft Account (Hotmail, Outlook, etc.)</option>
+            </select>
+        </div>
+
+        <div class="st-float-clear" if.bind="connectionType == azureConnection.Microsoft">
+            <p class="st-text">
+                In order to connect to your Microsoft account we will need to know your Azure directory.
+                To figure this out please refer to our <a href="http://community.powerbi.com/t5/Power-BI-Solution-Templates/Guide-for-using-Microsoft-accounts-with-Twitter-template/m-p/60088#M31" target="_blank">guide</a>.
+            </p>
+            <p class="st-text">Azure Directory:</p>
+            <input class="st-input" placeholder="directoryname.onmicrosoft.com" type="text" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="azureDirectory"/>
+        </div>
+
+        <div class="st-float-clear">
+            <button class="primary" click.delegate="connect()">Connect to Azure</button>
+        </div>
+    </div>
+
+    <div class="st-float-clear" if.bind="subscriptionsList && subscriptionsList.length > 0">
+        <select class="btn btn-default dropdown-toggle st-input" if.bind="isActivated && isValidated" value.bind="selectedSubscriptionId">
+            <option repeat.for="item of subscriptionsList" value.bind="item.SubscriptionId">${item.DisplayName}</option>
+        </select>
+    </div>
+    
+    <p class="st-float-clear st-text">By connecting to Azure you authorize the creation of an ADF instance and Azure SQL on your subcription. These will count towards your Azure consumption. You can learn more about pricing <a href="https://azure.microsoft.com/en-us/pricing/details/data-factory/" target="_blank">here</a>.</p>
+</template>

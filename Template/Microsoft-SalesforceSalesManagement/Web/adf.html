@@ -1,0 +1,22 @@
+﻿<template>
+    <h1 class="st-title">Configure Azure Data Factory</h1>
+
+    <div class="st-float-clear">
+        <p class="st-text">Pipeline frequency:</p>
+        <select class="btn btn-default dropdown-toggle st-input" value.bind="viewmodel.pipelineFrequency">
+            <option>Minute</option>
+            <option>Hour</option>
+            <option>Day</option>
+            <option>Week</option>
+            <option>Month</option>
+        </select>
+    </div>
+
+    <div class="st-float-clear">
+        <p class="st-text">Pipeline interval:</p>
+        <input class="st-input" type="number" placeholder="15" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="viewmodel.pipelineInterval" />
+    </div>
+    <p class="st-float-clear">
+        <button class="primary" click.delegate="viewmodel.OnValidate()" if.bind="!MS.HttpService.isServiceBusy">Validate</button>
+    </p>
+</template>

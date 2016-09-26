@@ -1,0 +1,82 @@
+﻿{
+  "Pages": [
+    {
+      "name": "gettingStarted.html",
+      "displayname": "Getting Started"
+    },
+    {
+      "name": "azure.html",
+      "displayname": "Azure"
+    },
+    {
+      "name": "salesforce.html",
+      "displayname": "Salesforce"
+    },
+    {
+      "name": "adf.html",
+      "displayname": "Azure Data Factory"
+    },
+    {
+      "name": "target.html",
+      "displayname": "SQL Target"
+    },
+    {
+      "name": "summary.html",
+      "displayname": "Summary"
+    },
+    {
+      "name": "progress.html",
+      "displayname": "Progress"
+    }
+  ],
+
+  "Actions": [
+    {
+      "name": "Microsoft-DeploySQLScripts",
+      "displayname": "Deploy DB Scripts",
+      "SqlServerIndex": "0",
+      "SqlScriptsFolder": "Service/Database/Cleanup"
+    },
+    {
+      "name": "Microsoft-SalesforceGetObjectMetadata",
+      "displayname": "Retrieve metadata from Salesforce"
+    },
+    {
+      "name": "Microsoft-SalesforceSqlArtefacts",
+      "displayname": "Create objects in SQL"
+    },
+    {
+      "name": "Microsoft-DeploySQLScripts",
+      "displayname": "Create DB relations",
+      "SqlServerIndex": "0",
+      "SqlScriptsFolder": "Service/Database/ADF"
+    },
+    {
+      "name": "Microsoft-ADFDeployLinkedServices",
+      "displayname": "Creating linked services",
+      "DeploymentName": "ADFDeployment"
+    },
+    {
+      "name": "Microsoft-ADFDeployDatasets",
+      "displayname": "Creating historical datasets",
+      "DeploymentName": "ADFPreDeploymentPipeline"
+    },
+    {
+      "name": "Microsoft-ADFDeployPipelines",
+      "displayname": "Creating historical pipelines",
+      "DeploymentName": "ADFPostDeploymentPipeline"
+    },
+    {
+      "name": "Microsoft-ADFDeployDatasets",
+      "displayname": "Creating current datasets",
+      "DeploymentName": "ADFPostDeploymentPipeline",
+      "postDeploymentPipelineType": "PostDeployment"
+    },
+    {
+      "name": "Microsoft-ADFDeployPipelines",
+      "displayname": "Creating current pipelines",
+      "DeploymentName": "ADFPostDeploymentPipeline",
+      "postDeploymentPipelineType": "PostDeployment"
+    }
+  ]
+}

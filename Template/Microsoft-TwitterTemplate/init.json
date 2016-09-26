@@ -1,0 +1,80 @@
+{
+  "Pages": [
+    {
+      "name": "gettingStarted.html",
+      "displayname": "Getting Started"
+    },
+    {
+      "name": "azure.html",
+      "displayname": "Azure"
+    },
+    {
+      "name": "target.html",
+      "displayname": "Target"
+    },
+    {
+      "name": "twitter.html",
+      "displayname": "Twitter"
+    },
+    {
+      "name": "search-terms.html",
+      "displayname": "Search Terms"
+    },
+    {
+      "name": "twitter-handles.html",
+      "displayname": "Twitter Handles"
+    },
+    {
+      "name": "summary.html",
+      "displayname": "Summary"
+    },
+    {
+      "name": "progress.html",
+      "displayname": "Deploy"
+    }
+  ],
+
+  "Actions": [
+    {
+      "name": "Microsoft-DeploySQLScripts",
+      "displayname": "Deploy DB Scripts",
+      "SqlServerIndex": "0",
+      "SqlScriptsFolder": "Service/Database/LogicApps"
+    },
+    {
+      "name": "Microsoft-SetConfigValueInSql",
+      "displayname": "Deploy DB Configuration",
+      "SqlServerIndex": "0",
+      "SqlConfigTable": "[pbist_twitter].[configuration]"
+    },
+    {
+      "name": "Microsoft-DeployTwitterFunction",
+      "displayname": "Deploy Twitter Function",
+      "DeploymentName": "Function"
+    },
+    {
+      "name": "Microsoft-WaitForArmDeploymentStatus",
+      "displayname": "Validating Twitter Function",
+      "DeploymentName": "Function"
+    },
+    {
+      "name": "Microsoft-DeployTwitterFunctionAssets",
+      "displayname": "Deploy Twitter Function Assets"
+    },
+    {
+      "name": "Microsoft-DeployTwitterTemplateFiles",
+      "displayname": "Deploy Twitter Function Files",
+      "CurrentIndex": null
+    },
+    {
+      "name": "Microsoft-DeployTwitterLogicApp",
+      "displayname": "Deploy Twitter Logic App",
+      "DeploymentName": "LogicApp"
+    },
+    {
+      "name": "Microsoft-WaitForArmDeploymentStatus",
+      "displayname": "Validating Logic App",
+      "DeploymentName": "LogicApp"
+    }
+  ]
+}

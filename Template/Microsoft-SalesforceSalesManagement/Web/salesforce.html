@@ -1,0 +1,27 @@
+﻿<template>
+    <h1 class="st-title">Login to Salesforce</h1>
+
+    <div class="st-float-clear">
+        <p class="st-text">We now need to set up a connection to Salesforce in order to pull data.</p>
+    </div>
+
+    <div class="st-float-clear">
+        <p class="st-text">Salesforce Username:</p>
+        <input class="st-input" type="text" placeholder="username" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="viewmodel.salesforceUsername" />
+    </div>
+
+    <div class="st-float-clear">
+        <p class="st-text">Salesforce Password:</p>
+        <input class="st-input" type="password" placeholder="password" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="viewmodel.salesforcePassword" />
+    </div>
+
+    <div class="st-float-clear">
+        <p class="st-text">Salesforce Token:</p>
+        <input class="st-input" type="text" placeholder="token" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="viewmodel.salesforceToken" />
+        <span class="glyphicon pbi-glyph-info glyph-mini st-tooltip" title="If you do not know what your security token is, or how to get it, please contact your Salesforce administrator."></span>
+    </div>
+
+    <p class="st-float-clear">
+        <button class="primary" click.delegate="viewmodel.OnValidate()" if.bind="!MS.HttpService.isServiceBusy">Validate</button>
+    </p>
+</template>

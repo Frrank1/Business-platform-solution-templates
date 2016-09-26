@@ -1,0 +1,73 @@
+{
+  "MSI": {
+    "Guid": "2F142293-C7B5-4C57-8FFE-75F636688C9B"
+  },
+  "Pages": [
+    {
+      "name": "getting-started.html",
+      "displayname": "Getting Started"
+    },
+    {
+      "name": "source.html",
+      "displayname": "Source"
+    },
+    {
+      "name": "target.html",
+      "displayname": "Target"
+    },
+    {
+      "name": "customize.html",
+      "displayname": "Customize"
+    },
+    {
+      "name": "summary.html",
+      "displayname": "Summary"
+    },
+    {
+      "name": "progress.html",
+      "displayname": "Progress"
+    }
+  ],
+  "Actions": [
+    {
+      "name": "Microsoft-DeploySQLScripts",
+      "displayname": "Deploy DB scripts",
+      "SqlServerIndex": "1",
+      "SqlScriptsFolder": "Service/Database/NoETL"
+    },
+    {
+      "name": "Microsoft-SetConfigValueInSql",
+      "displayname": "Deploy DB Configuration",
+      "SqlServerIndex": "1",
+      "SqlConfigTable": "pbist_sccm.[configuration]"
+    },
+    {
+      "name": "Microsoft-InstallSqlTools",
+      "displayname": "Installing SQL Tools"
+    },
+    {
+      "name": "Microsoft-InstallSCCM",
+      "displayname": "Copy dataload scripts"
+    },
+    {
+      "name": "Microsoft-AddLogonAsBatchPermission",
+      "displayname": "Grant permission for logging as a batch job"
+    },
+    {
+      "name": "Microsoft-CreateTask",
+      "displayname": "Schedule tasks"
+    },
+    {
+      "name": "Microsoft-RunTask",
+      "displayname": "Run tasks"
+    },
+    {
+      "name": "Microsoft-GetDataPullStatus",
+      "displayname": "Waiting for data to come in",
+      "FinishedActionName": "Microsoft-GetTaskStatus",
+      "IsWaiting": true,
+      "SqlServerIndex": 1,
+      "TargetSchema": "pbist_sccm"
+    }
+  ]
+}
