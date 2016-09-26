@@ -10,7 +10,7 @@ export class ProgressVM extends ProgressViewModel {
     async OnLoaded() {
         let body: any = {};
         body.FileName = 'SalesManagementReport.pbix';
-
+        this.showCounts = true;
         let response = await this.MS.HttpService.Execute('Microsoft-WranglePBI', body);
             if (response.isSuccess) {
                 this.pbixDownloadLink = response.response.value;

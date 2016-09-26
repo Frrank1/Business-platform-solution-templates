@@ -16,6 +16,13 @@
         <p class="st-text">Pipeline interval:</p>
         <input class="st-input" type="number" placeholder="15" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="viewmodel.pipelineInterval" />
     </div>
+
+    <div class="st-float-clear">
+        <p class="st-text">Emails:</p>
+        <input class="st-input" type="text" placeholder="dave@contoso.com,jenny@contoso.com" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="viewmodel.emails" />
+        <span class="glyphicon pbi-glyph-info glyph-mini st-tooltip" title="Enter one or more email addresses that will be notified when a slice fails. Multiple email adresses need to be comma separated."></span>
+    </div>
+
     <p class="st-float-clear">
         <button class="primary" click.delegate="viewmodel.OnValidate()" if.bind="!MS.HttpService.isServiceBusy">Validate</button>
     </p>

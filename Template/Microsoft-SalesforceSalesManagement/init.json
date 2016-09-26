@@ -77,6 +77,13 @@
       "displayname": "Creating current pipelines",
       "DeploymentName": "ADFPostDeploymentPipeline",
       "postDeploymentPipelineType": "PostDeployment"
+    },
+    {
+      "name": "Microsoft-GetDataPullStatus",
+      "displayname": "Checking data exists in target",
+      "SqlServerIndex": 0,
+      "TargetSchema": "dbo",
+      "IsWaiting": true
     }
   ]
 }

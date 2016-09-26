@@ -21,10 +21,8 @@ export class DeploymentService {
         this.isFinished = false;
 
         let lastActionStatus: ActionStatus = ActionStatus.Success;
-       
-        for (let i = 0; i < this.actions.length && !this.hasError; i++) {
-            console.log(this.actions[i]);
 
+        for (let i = 0; i < this.actions.length && !this.hasError; i++) {
             this.executingIndex = i;
             this.executingAction = this.actions[i];
 

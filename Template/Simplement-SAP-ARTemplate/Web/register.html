@@ -14,5 +14,8 @@
 
         <p class="st-text">Email:</p>
         <input class="st-input" type="text" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="viewmodel.email" />
+
+        <p class="st-text">Email Confirmation:</p>
+        <input class="st-input" type="text" change.delegate="viewmodel.Invalidate()" disabled.bind="MS.HttpService.isServiceBusy" value.bind="viewmodel.emailConfirmation" />
     </div>
 </template>

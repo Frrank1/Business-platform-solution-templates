@@ -3,6 +3,7 @@ import { SqlServerViewModel } from '../../common/web/directives/sqlservertemplat
 export class Target extends SqlServerViewModel {
     constructor() {
         super();
+        this.checkSqlVersion = true;
         this.title = 'Connect to your SQL database';
         this.subtitle = 'Set up a connection to your target database so we can transfer your data.';
     }

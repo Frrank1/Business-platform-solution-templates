@@ -7,7 +7,7 @@ export class Source extends SqlServerViewModel {
         this.showAllWriteableDatabases = false;
         this.showAzureSql = false;
         this.showNewSqlOption = true;
-        this.subtitle = 'Set up a connection to SQL so we can bring in your Twitter data.';
+        this.subtitle = 'Set up a connection to SQL so we can bring in your Salesforce data.';
         this.title = 'Connect to your SQL Database';
         this.sqlInstance = 'NewSql';
     }

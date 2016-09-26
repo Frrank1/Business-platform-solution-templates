@@ -17,7 +17,7 @@ The following document provides a walkthrough of installation steps as well as i
 Architecture 
 -------------
 
-<img src="./media/image1.png" width="371" height="89" />
+![Image1](Resources/media/image1.png)
 
 The flow of the SCCM solution template is as follows:
 
@@ -45,13 +45,13 @@ System Requirements
 How to Install
 ==============
 
-<img src="./media/image2.png" width="624" height="307" />
+![Image2](Resources/media/image2.png)
 
 **Step 1: Connect to SCCM database**
 
 Enter a server name for your SCCM database, provide a credential to the server, validate a connection to the server, and choose your SCCM database. Note that the template supports System Center 2012 Configuration Manager R2 SP1 (5.00.8239.1000) or later. The credential used to connect to SCCM will be used to create a scheduled task to pull data from SCCM.
 
-<img src="./media/image3.png" width="624" height="313" />
+![Image3](Resources/media/image3.png)
 
 **Step 2: Connect to your destination database**
 
@@ -63,7 +63,7 @@ Enter a server name for your destination database, validate a connection to the 
 
 Note that database owner role is required to create tables and execute stored procedures.
 
-<img src="./media/image4.png" width="624" height="312" />
+![Image4](Resources/media/image4.png)
 
 **Step 3: Customize your settings**
 
@@ -79,41 +79,41 @@ Configure the following parameters and click “Validate”.
 
 Note that the scheduled task will not be triggered if a machine goes to sleep. The task will be restarted as soon as possible when the machine is out of sleep mode.
 
-<img src="./media/image5.png" width="624" height="312" />
+![Image5](Resources/media/image5.png)
 
 **Step 4: Verify and run **
 
 Verify the information and click “Run”.
 
-<img src="./media/image6.png" width="624" height="312" />
+![Image6](Resources/media/image6.png)
 
 **Step 5: Track your progress **
 
 The setup will create new tables, views, stored procedures in destination database, install required SQL tools if not found, create/run a new task.
 
-<img src="./media/image7.png" width="624" height="312" />
+![Image7](Resources/media/image7.png)
 
 **Step 6: Start pulling data **
 
 We'll show you progress while you wait. Please don't close the browser until all the steps are completed. This might take a while, depending on the size of your SCCM database.
 
-<img src="./media/image8.png" width="624" height="313" />
+![Image8](Resources/media/image8.png)
 
 **Step 7: Download PBIX**
 
 Download your Power BI report, open the report, and click “Apply changes” as below. Note that Power BI Desktop is required to open the report (Power BI Desktop can be download from [here](https://powerbi.microsoft.com/en-us/desktop/)).
 
-<img src="./media/image9.png" width="624" height="398" />
+![Image9](Resources/media/image9.png)
 
 Please click “Refresh” to import data from your destination database and enter your credentials.
 
-<img src="./media/image10.png" width="395" height="229" />
+![Image10](Resources/media/image10.png)
 
 **Step 8: Publish the report to PowerBI.com **
 
 At this point, you should be able to see your SCCM data. If you are interested in publishing the report to [Power BI](https://powerbi.microsoft.com/en-us/) and share it with colleagues, click “Publish” to Power BI.
 
-<img src="./media/image11.png" width="624" height="447" />
+![Image11](Resources/media/image11.png)
 
 Reports walkthrough
 -------------------
@@ -122,50 +122,50 @@ Reports walkthrough
 
 The report provides a high level overview of key SCCM metrics to quickly identify machines not up-to-date with software updates, failed mitigations to malware infections to be able to act promptly, failed updates and more.
 
-<img src="./media/image12.PNG" width="624" height="385" />
+![Image12](Resources/media/image12.png)
 
 ### Protection:
 
 You can track key protection measures for the period you configured during the installation.
 
-<img src="./media/image13.PNG" width="624" height="374" />
+![Image13](Resources/media/image13.png)
 
 ### Malware:
 
 The report shows trend of resolved/unresolved malware count by severity, OS, and remediation type. Malware Category chart (lower-left) shows numbers of resolved malware (color saturation by unresolved malware).
 
-<img src="./media/image14.PNG" width="624" height="375" />
+![Image14](Resources/media/image14.png)
 
 Note that you can enable drill down by selecting the arrow icon in the top right corner of the bar chart. To drill down one field at a time, double-click one of the chart bars. For drill down in details, please click [here](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-drill-down-in-a-visualization/).
 
-<img src="./media/image15.png" width="624" height="180" />
+![Image15](Resources/media/image15.png)
 
 ### Update Compliance:
 
 The report lists missing updates by severity and device that can be used to take action.
 
-<img src="./media/image16.PNG" width="624" height="376" />
+![Image16](Resources/media/image16.png)
 
 We provide hyperlinks for the missing updates in the table (lower-left). You can click the urls for more information.
 
-<img src="./media/image17.png" width="388" height="139" />
+![Image17](Resources/media/image17.png)
 
 ### Software Inventory:
 
 The report allows users to select a machine to show installed programs or select a program to show related machines.
 
-<img src="./media/image18.PNG" width="624" height="373" />
+![Image18](Resources/media/image18.png)
 
 Customizing Template
 --------------------
 
 Once you set up the solution template you may want to modify your settings. In order to do this, you will need to go into your SQL database and open the configuration table. It should look something like this:
 
-<img src="./media/image19.PNG" width="624" height="100" />
+![Image19](Resources/media/image19.png)
 
 If you want to change the data retention days from 120 days to 60 days, the SQL query will be following:
 
-<img src="./media/image20.PNG" width="259" height="50" />
+![Image20](Resources/media/image20.png)
 
 Cost 
 =====

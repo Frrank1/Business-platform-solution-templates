@@ -6,7 +6,7 @@
     {
       "name": "Microsoft-DeploySQLScripts",
       "displayname": "Deploy DB scripts",
-      "SqlServerIndex": "1",
+      "SqlServerIndex": "0",
       "SqlScriptsFolder": "Service/Database/NoETL"
     },
     {
@@ -26,7 +26,7 @@
       "displayname": "Waiting for data to come in",
       "CheckTask": true,
       "IsWaiting": true,
-      "SqlServerIndex": 1,
+      "SqlServerIndex": 0,
       "TargetSchema": "sap"
     }
   ],

@@ -8,6 +8,7 @@ export class sqlservertemplate {
 export class SqlServerViewModel extends ViewModelBase {
     auth: string = 'Windows';
     azureSqlSuffix: string = '.database.windows.net';
+    checkSqlVersion: boolean = false;
     database: string = '';
     databases: string[] = [];
     hideSqlAuth: boolean = false;
@@ -121,7 +122,15 @@ export class SqlServerViewModel extends ViewModelBase {
             this.MS.DataService.AddToDataStore(this.MS.NavigationService.GetCurrentSelectedPage().PageName, 'Server', this.getSqlServer());
             this.MS.DataService.AddToDataStore(this.MS.NavigationService.GetCurrentSelectedPage().PageName, 'Database', this.database);
             this.MS.DataService.AddToDataStore(this.MS.NavigationService.GetCurrentSelectedPage().PageName, 'Username', this.username);
-            return true;
+
+            let isProperVersion: boolean = true;
+
+            if (this.checkSqlVersion) {
+                let responseVersion = await this.MS.HttpService.Execute('Microsoft-CheckSQLVersion', {});
+                isProperVersion = responseVersion.isSuccess;
+            }
+
+            return isProperVersion;
         }
 
         return false;
@@ -142,17 +151,13 @@ export class SqlServerViewModel extends ViewModelBase {
     private async GetDatabases() {
         let body = this.GetBody(true);
 
-        let databasesResponse = null;
-
-        if (this.logInAsCurrentUser) {
-            databasesResponse = this.showAllWriteableDatabases
+        let databasesResponse = this.logInAsCurrentUser || !this.showLogInAsCurrentUser
+            ? this.showAllWriteableDatabases
                 ? await this.MS.HttpService.Execute('Microsoft-ValidateAndGetAllDatabases', body)
-                : await this.MS.HttpService.Execute('Microsoft-ValidateAndGetWritableDatabases', body);
-        } else {
-            databasesResponse = this.showAllWriteableDatabases
+                : await this.MS.HttpService.Execute('Microsoft-ValidateAndGetWritableDatabases', body)
+            : this.showAllWriteableDatabases
                 ? await this.MS.HttpService.ExecuteWithImpersonation('Microsoft-ValidateAndGetAllDatabases', body)
                 : await this.MS.HttpService.ExecuteWithImpersonation('Microsoft-ValidateAndGetWritableDatabases', body);
-        }
 
         return databasesResponse;
     }
