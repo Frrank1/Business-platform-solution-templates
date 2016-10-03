@@ -33,13 +33,15 @@
       "name": "Microsoft-DeploySQLScripts",
       "displayname": "Deploy DB scripts",
       "SqlServerIndex": "1",
-      "SqlScriptsFolder": "Service/Database/NoETL"
+      "SqlScriptsFolder": "Service/Database/NoETL",
+      "UseImpersonation": true
     },
     {
       "name": "Microsoft-SetConfigValueInSql",
       "displayname": "Deploy DB Configuration",
       "SqlServerIndex": "1",
-      "SqlConfigTable": "pbist_sccm.[configuration]"
+      "SqlConfigTable": "pbist_sccm.[configuration]",
+      "UseImpersonation": true
     },
     {
       "name": "Microsoft-InstallSqlTools",
@@ -67,7 +69,8 @@
       "FinishedActionName": "Microsoft-GetTaskStatus",
       "IsWaiting": true,
       "SqlServerIndex": 1,
-      "TargetSchema": "pbist_sccm"
+      "TargetSchema": "pbist_sccm",
+      "UseImpersonation":  true
     }
   ]
 }

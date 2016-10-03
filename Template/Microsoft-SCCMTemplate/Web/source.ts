@@ -8,6 +8,7 @@ export class Source extends SqlServerViewModel {
         this.showAzureSql = false;
         this.showCredsWhenWindowsAuth = true;
         this.logInAsCurrentUser = true;
+        this.showAllWriteableDatabases = false;
         this.showLogInAsCurrentUser = true;
         this.subtitle = 'Set up a connection to your SCCM database so we can bring in your data. The credentials used to connect to SCCM will be used to create a scheduled task to pull data from SCCM.';
         this.validateWindowsCredentials = true;
@@ -17,7 +18,9 @@ export class Source extends SqlServerViewModel {
         let isSuccess: boolean = await super.NavigatingNext();
 
         if (isSuccess) {
-            let response = await this.MS.HttpService.Execute("Microsoft-CheckSCCMVersion", {});
+            let response = this.logInAsCurrentUser
+                ? await this.MS.HttpService.Execute('Microsoft-CheckSCCMVersion', {})
+                : await this.MS.HttpService.ExecuteWithImpersonation('Microsoft-CheckSCCMVersion', {});
             isSuccess = response.isSuccess;
         }
 

@@ -5,6 +5,7 @@ export class ProgressVM extends ProgressViewModel {
         super();
         this.finishedActionName = 'Microsoft-GetTaskStatus';
         this.showCounts = true;
+        this.sqlServerIndex = 1;
         this.successMessage = 'Data is now pulling! Meanwhile you can download your Power BI report and start exploring your data.';
         this.targetSchema = 'pbist_sccm';
     }
@@ -12,7 +13,7 @@ export class ProgressVM extends ProgressViewModel {
     async OnLoaded() {
         let body: any = {};
         body.FileName = 'SCCMSolutionTemplate.pbix';
-        body.SqlServerIndex = 1; 
+        body.SqlServerIndex = this.sqlServerIndex;
 
         let response = await this.MS.HttpService.Execute('Microsoft-WranglePBI', body);
         if (response.isSuccess) {

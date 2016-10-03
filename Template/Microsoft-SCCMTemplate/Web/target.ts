@@ -13,14 +13,9 @@ export class Target extends SqlServerViewModel {
         this.MS.DataService.AddToDataStore('SCCM', 'CredentialUsername', this.username);
         this.MS.DataService.AddToDataStore('SCCM', 'CredentialPassword', this.password);
 
-        let impersonation = this.MS.DataService.GetItemFromDataStore('source.html', 'ImpersonationUsername');
-
-        let response: any;
-        if (impersonation && impersonation.length > 0) {
-            response = await this.MS.HttpService.ExecuteWithImpersonation('Microsoft-CredentialManagerWrite', {});
-        } else {
-            response = await this.MS.HttpService.Execute('Microsoft-CredentialManagerWrite', {});
-        }
+        let response = this.MS.UtilityService.UseImpersonation()
+            ? await this.MS.HttpService.ExecuteWithImpersonation('Microsoft-CredentialManagerWrite', {})
+            : await this.MS.HttpService.Execute('Microsoft-CredentialManagerWrite', {});
 
         if (response.isSuccess) {
             return super.NavigatingNext();
