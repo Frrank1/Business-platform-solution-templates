@@ -1,8 +1,20 @@
 Brand & Campaign Management Solution Template Documentation
 ===========================================================
 
-Introduction
-============
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Architecture](#architecture)
+3. [System Requirements](#system-requirements)
+4. [How to Install](#how-to-install)
+5. [Architecture Deep Dive] (#architecture-deep-dive)
+6. [Model Schema] (#model-schema)
+7. [Reports Walkthrough](#report-walkthrough)
+8. [Customizations](#customizations)
+9. [Pricing] (#pricing)
+
+
+
+#Introduction
 
 The Twitter template spins up a complete brand/campaign solution. It stands up an end-to-end solution that pulls data from Twitter, enriches the data using machine learning and stores it in Azure SQL. Users can then use pre-built Power BI reports that leverage Microsoft research technology to start analyzing their Twitter data and augmenting it with additional data sources.
 
@@ -18,8 +30,7 @@ The template lets you do things like:
 
 The following document provides a walkthrough of the architecture, a deep dive into every component, comments on customizability as well as information on additional topics like pricing. For any questions not covered in this document, please contact the team at <PBISolnTemplates@microsoft.com>
 
-Architecture
-------------
+#Architecture
 
 ![Image](Resources/media/image1.png)
 
@@ -33,8 +44,7 @@ The flow of the Twitter solution template is as follows:
 
 -   Power BI imports data into it from Azure SQL and renders pre-defined reports
 
-System Requirements
-===================
+#System Requirements
 
 Setting up the template requires the following:
 
@@ -46,8 +56,7 @@ Setting up the template requires the following:
 
 -   Twitter Account
 
-How to Install
-==============
+#How to Install
 
 Before diving into the components of the solution, we will go through how to set things up. To get started with the solution, navigate to the [Twitter template page](https://powerbi.microsoft.com/en-us/solution-templates/brand-management-twitter) and click **Install Now**.
 
@@ -257,8 +266,8 @@ The final Azure resource used is Azure SQL. Azure SQL is a bit special in that y
 
 The next section goes into more depth on the SQL tables and views created as part of the solution.
 
-Model Schema
-------------
+#Model Schema
+
 
 Here is an overview of the tables found in the model:
 
@@ -450,8 +459,7 @@ Clicking on a tweet will cross filter the ‘influence’ stats on the left hand
 
 ![Image](Resources/media/image44.png)
 
-Customizations
-==============
+#Customizations
 
 Updating the Solution
 ---------------------
@@ -493,8 +501,7 @@ The Python script inside the Azure Function is completely customizable. You can 
 
 Other examples could be to add [Cognitive APIs](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) to do things like topic or keyword extraction on top of the twitter data.
 
-Pricing
-=======
+#Pricing
 
 Here is an estimate of the Azure costs (Logic App, Azure Function, Azure SQL, App Service Plan) based on the number of tweets processed:
 
