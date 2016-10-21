@@ -503,15 +503,15 @@ Other examples could be to add [Cognitive APIs](https://azure.microsoft.com/en-u
 
 #Pricing
 
-Here is an estimate of the Azure costs (Logic App, Azure Function, Azure SQL, App Service Plan) based on the number of tweets processed:
+Here is an estimate of the Azure costs (Logic App, Azure Function, Azure SQL, Cognitive Services) based on the number of tweets processed:
 
-Processing 10K tweets a month will cost approximately $60
+Processing 10K tweets a month will cost approximately $210
 
-Processing 50K tweets a month will cost approximately $165
+Processing 50K tweets a month will cost approximately $315
 
-Processing 100K tweets a month will cost approximately $235
+Processing 100K tweets a month will cost approximately $385
 
-Please keep in mind these are **estimated costs.** For a more detailed breakdown of the various components please refer to the [Azure calculator](https://azure.microsoft.com/en-us/pricing/calculator/) and select Logic App, Azure Function, Azure SQL and App Service. You can tweak all the options to see what the costs will look like and what modifications may suit your needs best.
+Please keep in mind these are **estimated costs.** For a more detailed breakdown of the various components please refer to the [Azure calculator](https://azure.microsoft.com/en-us/pricing/calculator/) and select Logic App, Azure Function, Azure SQL and Congitive Services. You can tweak all the options to see what the costs will look like and what modifications may suit your needs best.
 
 The following defaults are set for you in the template (you can modify any of these after things get set up):
 
@@ -521,7 +521,9 @@ The following defaults are set for you in the template (you can modify any of th
 
 -   Logic Apps (trigger set for every 3 minutes)
 
--   Azure Functions (1536MB memory size)
+-   Azure Functions
+
+-   Cognitive Services (Text Analytics API)
 
 For example, if you know you will be processing very few tweets a month, you could change the SQL Server from S1 to Basic. In that case you could bring down the costs of processing 10K tweets a month from about $60 to about $30.
 
