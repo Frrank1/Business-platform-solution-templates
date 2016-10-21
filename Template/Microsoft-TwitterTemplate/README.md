@@ -525,8 +525,6 @@ The following defaults are set for you in the template (you can modify any of th
 
 -   Cognitive Services (Text Analytics API)
 
-For example, if you know you will be processing very few tweets a month, you could change the SQL Server from S1 to Basic. In that case you could bring down the costs of processing 10K tweets a month from about $60 to about $30.
-
-Similarly, if you know you will be processing more than 100K tweets a month you may want to upgrade your App Service Plan from Standard to Premium which lets you process more Logic App actions each month.
+For example, if you know you will be processing very few tweets a month, you could change the SQL Server from S1 to Basic. In that case you could bring down the costs of processing 10K tweets a month from about $210 to about $180.
 
 Whilst the default setting should cater to most twitter template requirements, we encourage you to familiarize yourself with the various pricing options and tweak things to suit your needs.
