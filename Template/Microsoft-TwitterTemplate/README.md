@@ -146,6 +146,14 @@ Whatever tweets are found in the 3-minute interval, are batched up and sent sequ
 
 ![Image](Resources/media/image16.png)
 
+### Cognitive Services:
+
+The Azure Cogntivie Service for Textual Analytics is used inside the Azure Function (covered in the next section). There are many services available but we use it for the sentiment API. With regards to the Cognitive Service resource itself, there are a few configurations that can be done inside the Azure portal. 
+
+Most importantly, a user is able to change the SKU they want to use for the Cognitive Service. As a default, we set it to S1 (100K calls) which costs $150 per month. Depending on the anticipated traffic you can change the SKU to meet your needs.
+
+![Image](Resources/media/image48.png)
+
 ### Azure Function: 
 
 A JSON payload of the tweet gets sent into the newly created Azure Function which consists of a C# script. When the function was spun up the run file was updated to the specific script below. 
