@@ -32,7 +32,7 @@ The following document provides a walkthrough of the architecture, a deep dive i
 
 #Architecture
 
-![Image](Resources/media/image1.png)
+![Image](Resources/media/image46.png)
 
 The flow of the Twitter solution template is as follows:
 
@@ -41,6 +41,8 @@ The flow of the Twitter solution template is as follows:
 -   Logic App passes tweet into an Azure Function
 
 -   Azure Function enriches tweet and writes it to Azure SQL
+
+-   Azure Function also calls textual analytics cognitive service to work out sentiment of tweet
 
 -   Power BI imports data into it from Azure SQL and renders pre-defined reports
 
