@@ -152,7 +152,7 @@ The Azure Cogntivie Service for Textual Analytics is used inside the Azure Funct
 
 Most importantly, a user is able to change the SKU they want to use for the Cognitive Service. As a default, we set it to S1 (100K calls) which costs $150 per month. Depending on the anticipated traffic you can change the SKU to meet your needs.
 
-![Image](Resources/media/image48.png)
+![Image](Resources/media/image48.PNG)
 
 ### Azure Function: 
 
