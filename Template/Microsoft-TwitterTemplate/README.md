@@ -88,6 +88,10 @@ Logging into Azure gives the application access to your Azure subscription and p
 
 ![Image](Resources/media/image7.png)
 
+**Cognitive Services:** Congitive services are an Azure service that does textual analytics incuding sentiment analysis. Choose between spinning up a new cognitive service on your subscription or selecting an existing one. If you want to use an existing service you can log into your Azure account, find they key for the cognitive service and copy paste it into the installer.
+
+![Image](Resources/media/image47.png)
+
 **Search Terms:** Input the search terms you are interested in tracking. Tweets that match your search terms will be pulled from Twitter via the Logic App. Logic Apps supports any queries that the Twitter Search API supports. Guidelines are available [here](https://dev.twitter.com/rest/public/search). If you would like to learn how you can change your search terms once the solution is deployed, please look at the ‘Customizations’ section.
 
 ![Image](Resources/media/image8.png)
